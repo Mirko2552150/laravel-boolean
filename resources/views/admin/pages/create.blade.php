@@ -54,17 +54,17 @@ $categories =  [
 $photos = [
   [
     'id' => 1,
-    'title' => 'Lorem ipsum',
+    'title' => 'foto 1',
     'path' => 'images/nomefoto.jpg'
   ],
     [
       'id' => 2,
-      'title' => 'Due Lorem ipsum',
+      'title' => 'foto 2',
       'path' => 'images/nomefoto.jpg'
   ],
     [
       'id' => 3,
-      'title' => 'Tre Lorem ipsum',
+      'title' => 'foto 3',
       'path' => 'images/nomefoto.jpg'
   ],
 ]
@@ -160,16 +160,7 @@ $photos = [
                       <small class="form-text">Errore</small>
                     @enderror
                  </fieldset>
-
                </div>
-                {{-- <div class="form-check">
-                  <input class="form-check-input"  type="checkbox" name="tags[]" id="tag2" value="1">
-                  <label class="form-check-label" for="tag1">Tags 2</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input"  type="checkbox" name="tags[]" id="tag3" value="1">
-                  <label class="form-check-label" for="tag3">Tags 3</label>
-                </div> --}}
                 <div class="form-group">
                   <input class="btn btn-primary" type="submit" value="Salva">
                 </div>

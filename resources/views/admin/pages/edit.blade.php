@@ -141,6 +141,7 @@ $message = '';
                         var_dump($category['id'], $category['id'] == $page['category_id']);
                           $message = 'selected';
                         @endphp
+                        {{-- se trovo corrispondenza tra $category['id'] == $page['category_id'] stampo il selected --}}
                         <option value="{{$category['id']}}" {{ $message}}>{{$category['name']}}</option>
                       @else
                       <option value="{{$category['id']}}">{{$category['name']}}</option>
@@ -165,20 +166,10 @@ $message = '';
                     <div class="form-check form-check-inline">
                       @if(is_array($oldtags))
                           <input class="form-check-input"  type="checkbox" name="tags[]" id="tag{{$tag['id']}}" value="{{$tag['id']}}"
-                          {{
-                            (in_array($tag['id'],  $oldtags))
-
-                            ? 'checked' : ''
-                          }}
-                          >
+                          {{ (in_array($tag['id'], $oldtags)) ? 'checked' : '' }}>
                       @else
                         <input class="form-check-input"  type="checkbox" name="tags[]" id="tag{{$tag['id']}}" value="{{$tag['id']}}"
-                          {{
-                            (in_array($tag['id'],  $page['tags']))
-
-                            ? 'checked' : ''
-                          }}
-                           >
+                          {{ (in_array($tag['id'], $page['tags'])) ? 'checked' : ''}}>
                       @endif
                       <label class="form-check-label" for="tag{{$tag['id']}}">{{$tag['name']}}</label>
                   </div>
