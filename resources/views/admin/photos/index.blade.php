@@ -1,35 +1,20 @@
 @extends('layouts.app')
 @php
-  $pages = [
+  $photos = [
     [
       'id' => 1,
-      'category' => 1,
-      'title' => 'Lorem ipsum 1',
-      'tags' => [
-        1,
-        3,
-        5
-      ],
+      'title' => 'Foto uno',
+      'path' => 'https://picsum.photos/200/300',
     ],
     [
       'id' => 2,
-      'category' => 1,
-      'title' => 'Lorem ipsum 2 ',
-      'tags' => [
-        2,
-        7,
-        5
-      ],
+      'title' => 'Foto due',
+      'path' => 'https://picsum.photos/200/300',
     ],
     [
-      'id' => 2,
-      'category' => 1,
-      'title' => 'Lorem ipsum 3',
-      'tags' => [
-        2,
-        6,
-        4
-      ],
+      'id' => 3,
+      'title' => 'Foto tre',
+      'path' => 'https://picsum.photos/200/300',
     ]
     ];
 @endphp
@@ -52,7 +37,7 @@
             <h2>Pages</h2>
           </div>
           <div class="offset-3 col-3">
-            <a href="{{route('admin.pages.create')}}">Crea una pagina</a>
+            <a href='{{route('admin.photos.create')}}'>Carica una foto</a>
           </div>
         </div>
         <table class="table table-dark">
@@ -60,26 +45,14 @@
             <tr>
               <td>ID</td>
               <td>Title</td>
-              <td>Category</td>
-              <td>Tags</td>
               <td colspan="3">Actions</td>
             </tr>
           </thead>
           <tbody>
-            @foreach ($pages as $key => $page)
+            @foreach ($photos as $key => $photo)
               <tr>
-                <td>{{$page['id']}}</td>
-                <td>{{$page['title']}}</td>
-                <td>{{$page['category']}}</td>
-                <td>
-                  @foreach ($page['tags'] as $key => $tag)
-                    {{$tag}}
-                    {{-- se NON e' l'ultimo metto la , --}}
-                    @if (!$loop->last)
-                      ,
-                    @endif
-                  @endforeach
-                </td>
+                <td>{{$photo['id']}}</td>
+                <td>{{$photo['title']}}</td>
                 <td><a class="btn btn-primary" href="#">Visualizza</a></td>
                 <td><a class="btn btn-secondary" href="#">Modifica</a></td>
                 <td>

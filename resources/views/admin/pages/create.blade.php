@@ -101,14 +101,14 @@ $photos = [
                 @method('POST')
                 <div class="form-group">
                   <label for="title">Title</label>
-                  <input type="text" class="form-control" id="title"  placeholder="Inserisci un titolo">
+                  <input type="text" class="form-control" name="title" id="title"  placeholder="Inserisci un titolo">
                   @error('title')
                     <small class="form-text">Errore</small>
                   @enderror
                 </div>
                 <div class="form-group">
                   <label for="summary">Summary</label>
-                  <input type="text" class="form-control" id="summary"  placeholder="Inserisci il sommario">
+                  <input name="summary" type="text" class="form-control" id="summary"  placeholder="Inserisci il sommario">
                   @error('summary')
                     <small class="form-text">Errore</small>
                   @enderror
