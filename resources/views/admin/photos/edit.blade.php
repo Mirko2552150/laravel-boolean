@@ -52,7 +52,7 @@
             @enderror
           </div>
           <div class="form-group">
-            <input class="btn btn-primary" type="submit" name="SUBMIT" value="Salva">
+            <input class="btn btn-primary" type="submit" name="SUBMIT" value="Edita">
           </div>
         </form>
       </div>
