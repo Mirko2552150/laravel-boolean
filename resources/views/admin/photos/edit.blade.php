@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @php
-  $photos= [
+  $photo= [
+    'id' => 1,
     'title' => 'Titolo 1',
     'description' => 'descrizione 1',
-    'path' => 'descrizione 1',
+    'path' => 'images/foto.jpeg',
 
-  ]
+  ];
 @endphp
 @section('content')
   <div class="container">
@@ -21,22 +22,22 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-8">
         {{-- l enctype ci permette di prendere la stringa che inseriamo e trasformarla in un file --}}
         {{-- usiamo il coamndo php artisan storage:link --}}
-        <form class="" action="{{route('admin.photos.edit')}}" method="POST" enctype="multipart/multipart/form-data">
+         <form action="{{route('admin.photos.update', $photo['id'])}}" method="POST" enctype="multipart/form-data">
           @csrf
-          @method('PUT')
+          @method('PATCH')
           <div class="form-group">
             <label for="title">Title</label>
-            <input name="title" type="text" class="form-control" id="title"  placeholder="Inserisci un titolo">
+            <input name="title" type="text" class="form-control" id="title"  placeholder="Inserisci un titolo" value='{{$photo['title']}}'>
             @error('title')
               <small class="form-text">Errore</small>
             @enderror
           </div>
           <div class="form-group">
             <label for="description">Descrizione</label>
-            <input name="description" type="text" class="form-control" id="description"  placeholder="Inserisci una descrizione">
+            <input name="description" type="text" class="form-control" id="description"  placeholder="Inserisci una descrizione" value='{{$photo['description']}}'>
             @error('description')
               <small class="form-text">Errore</small>
             @enderror
@@ -44,7 +45,7 @@
           <div class="form-group">
             <div class="custom-file">
               <input name="path" type="file" class="custom-file-input" id= "inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-              <label class="custom-file-label" for="inputGroupFile01">Choose Img</label>
+              <label class="custom-file-label" for="inputGroupFile01">Carica nuova foto</label>
             </div>
             @error('path')
               <small class="form-text">Errore</small>
@@ -54,6 +55,9 @@
             <input class="btn btn-primary" type="submit" name="SUBMIT" value="Salva">
           </div>
         </form>
+      </div>
+      <div class="col-4">
+        <img src="{{asset('storage/' . $photo['path'])}}" alt="">
       </div>
     </div>
   </div>

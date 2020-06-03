@@ -16,7 +16,7 @@
       <div class="col-12">
         {{-- l enctype ci permette di prendere la stringa che inseriamo e trasformarla in un file --}}
         {{-- usiamo il coamndo php artisan storage:link --}}
-        <form class="" action="{{route('admin.photos.store')}}" method="POST" enctype="multipart/multipart/form-data">
+        <form action="{{route('admin.photos.store')}}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('POST')
           <div class="form-group">
